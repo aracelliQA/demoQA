@@ -7,7 +7,14 @@ module.exports = defineConfig({
     },
     baseUrl: "https://demoqa.com/",
     testIsolation: true,
-    cacheAcrossSpecs: true
+    cacheAcrossSpecs: true,
+    reporter: "mochawesome",
+    reporterOptions: {
+      reportDir: "cypress/reports",
+      overwrite: false,
+      html: false,
+      json: true
   },
+}
   
 });

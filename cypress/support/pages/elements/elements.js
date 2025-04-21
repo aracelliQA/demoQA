@@ -85,8 +85,48 @@ class elements {
         cy.url().should('include', 'demoqa.com');
         cy.visit('/links');
         cy.get('#created').click();
-        cy.intercept('GET', '/created')
+        cy.intercept('GET', '/created', {statusCode: 201});
+        cy.get('#no-content').click();
+        cy.intercept('GET', '/no-content', {statusCode: 204});
+        cy.get('#moved').click();
+        cy.intercept('GET', '/moved',{statusCode: 301});
+        cy.get('#bad-request').click();
+        cy.intercept('GET', '/bad-request', {statusCode: 400});
+        cy.get('#unauthorized').click();
+        cy.intercept('GET', '/unauthorized', {statusCode: 401});
+        cy.get('#forbidden').click();
+        cy.intercept('GET', '/forbidden', {statusCode: 403});
+        cy.get('#invalid-url').click();
+        cy.intercept('GET', '/invalid-url', {statusCode: 404});
     }
+
+    brokenLinksImages() {
+        cy.visit('/broken');
+        cy.get(':nth-child(2) > [src="/images/Toolsqa.jpg"]').should('be.visible');
+        cy.get('[src="/images/Toolsqa_1.jpg"]').should('be.visible');
+        cy.contains('Click Here for Valid Link').should('have.attr', 'href', 'http://demoqa.com');
+        cy.contains('Click Here for Broken Link').should('have.attr', 'href', 'http://the-internet.herokuapp.com/status_codes/500');
+    }
+
+    uploadDownload() {
+    cy.visit('/upload-download');
+    cy.get('#downloadButton').click()
+    cy.readFile('cypress/downloads/samplefile.jpeg').should('exist');
+    cy.get('#uploadFile').selectFile('./cypress/support/uploadFiles/test.docx');
+    cy.get('#uploadedFilePath').should('be.visible').and('contain', 'test.docx')
+}
+    dynamicProperties() {
+    cy.visit('/dynamic-properties');
+    cy.get('#enableAfter').should('be.visible');
+    cy.wait(5000)
+    cy.get('#visibleAfter').should('be.visible');
+    cy.get('#colorChange').should('have.css', 'color', 'rgb(220, 53, 69)');
+}
+
+
+
+
+
 }
 
 export default new elements();
