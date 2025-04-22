@@ -1,5 +1,4 @@
 import elements from "../support/pages/elements/elements";
-import forms from "../support/pages/forms/form";
 
 describe('DemoQA Testing - Elements', () => {
 
@@ -48,11 +47,5 @@ describe('DemoQA Testing - Elements', () => {
     elements.dynamicProperties();
   });
 
-  it('Validating Forms - Empty Fields', () => {
-    forms.emptyFields();
-  });
 
-  it.only('Validating Forms - Valid Forms', () => {
-    forms.validForms();
-  });
 })

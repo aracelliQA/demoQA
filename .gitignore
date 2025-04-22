@@ -1,8 +1,6 @@
 # Node modules
 node_modules/
 
-# Relatórios do Cypress
-cypress/reports/
 
 # Cache do Cypress
 cypress/screenshots/

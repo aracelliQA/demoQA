@@ -10,7 +10,7 @@ describe('DemoQA Testing - Forms', () => {
     forms.emptyFields();
   });
 
-  it.only('Validating form submission with valid data', () => {
+  it('Validating form submission with valid data', () => {
     forms.validForms();
   });
 })

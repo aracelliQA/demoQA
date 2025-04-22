@@ -14,7 +14,7 @@ describe('DemoQA Testing - Alerts, Frames and Windows', () => {
     alertsFramesWindows.alerts();
   });
 
-  it.only('Validating Frames', () => {
+  it('Validating Frames', () => {
     alertsFramesWindows.frames();
   });
 
