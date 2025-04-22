@@ -1,7 +1,7 @@
 import elements from "../support/pages/elements/elements";
 import forms from "../support/pages/forms/form";
 
-describe('DemoQA Testing', () => {
+describe('DemoQA Testing - Elements', () => {
 
   before(()=>{
     cy.clearAllCookies();
