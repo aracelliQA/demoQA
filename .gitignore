@@ -1,0 +1,16 @@
+# Node modules
+node_modules/
+
+# Relatórios do Cypress
+cypress/reports/
+
+# Cache do Cypress
+cypress/screenshots/
+cypress/videos/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Configurações locais do VS Code
+.vscode/
